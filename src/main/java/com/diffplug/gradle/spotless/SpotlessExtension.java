@@ -23,6 +23,7 @@ import org.gradle.api.GradleException;
 import org.gradle.api.Project;
 
 import com.diffplug.gradle.spotless.freshmark.FreshMarkExtension;
+import com.diffplug.gradle.spotless.groovy.GroovyExtension;
 import com.diffplug.gradle.spotless.java.JavaExtension;
 import groovy.lang.Closure;
 
@@ -57,6 +58,19 @@ public class SpotlessExtension {
 	public void java(Consumer<JavaExtension> closure) {
 		JavaExtension java = new JavaExtension(this);
 		closure.accept(java);
+	}
+
+	/** Configures the special groovy-specific extension. */
+	public void groovy(Closure<GroovyExtension> closure) {
+		GroovyExtension groovy = new GroovyExtension(this);
+		closure.setDelegate(groovy);
+		closure.call();
+	}
+
+	/** Configures the special groovy-specific extension. */
+	public void groovy(Consumer<GroovyExtension> closure) {
+		GroovyExtension groovy = new GroovyExtension(this);
+		closure.accept(groovy);
 	}
 
 	/** Configures the special freshmark-specific extension. */
