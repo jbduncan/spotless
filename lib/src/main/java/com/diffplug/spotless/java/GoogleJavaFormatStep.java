@@ -29,8 +29,8 @@ import com.diffplug.spotless.Provisioner;
 public class GoogleJavaFormatStep implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static final String DEFAULT_STYLE = "GOOGLE";
-	private static final boolean DEFAULT_REFLOW_LONG_STRINGS = false;
-	private static final boolean DEFAULT_REORDER_IMPORTS = false;
+	private static final boolean DEFAULT_REFLOW_LONG_STRINGS = true;
+	private static final boolean DEFAULT_REORDER_IMPORTS = true;
 	private static final boolean DEFAULT_FORMAT_JAVADOC = true;
 	private static final String NAME = "google-java-format";
 	private static final String MAVEN_COORDINATE = "com.google.googlejavaformat:google-java-format";
