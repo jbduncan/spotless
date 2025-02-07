@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2024 DiffPlug
+ * Copyright 2016-2025 DiffPlug
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -171,8 +171,9 @@ public class JavaExtension extends FormatExtension implements HasBuiltinDelimite
 		final String version;
 		String groupArtifact;
 		String style;
-		boolean reflowLongStrings;
-		boolean reorderImports;
+		// TODO: duplication between here and GoogleJavaFormatStep.DEFAULT_*
+		boolean reflowLongStrings = true;
+		boolean reorderImports = true;
 		boolean formatJavadoc = true;
 
 		GoogleJavaFormatConfig(String version) {
@@ -198,6 +199,7 @@ public class JavaExtension extends FormatExtension implements HasBuiltinDelimite
 			return style("AOSP");
 		}
 
+		// TODO: Replace with doNotReflowLongStrings()
 		public GoogleJavaFormatConfig reflowLongStrings() {
 			return reflowLongStrings(true);
 		}
